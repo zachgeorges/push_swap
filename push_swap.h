@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 15:59:34 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/03/18 12:56:44 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:19:36 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,50 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }				t_node;
-
+//parsing.c
 char	**ft_split(char *str, char c);
-
 t_node	*create_stack(char	**argv, int free_argv);
 
+//stack_utils.c
 int		stack_len(t_node *stack);
 int		is_sorted(t_node *stack);
 t_node	*get_smallest(t_node *stack);
+void	free_stack(t_node **node);
 
-void	sort_3(t_node **a);
-
+//swap_instructions.c
 void	sa(t_node **a);
 void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
 
+//push_instructions.c
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **b, t_node **a);
 
+//rotate_instructions.c
 void	ra(t_node **a);
 void	rb(t_node **b);
 void	rr(t_node **a, t_node **b);
 
+//reverse_rotate_instructions.c
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
+//node_data.c
 void	set_positions(t_node *stack);
 void	set_targets(t_node *a, t_node *b);
 void	set_costs(t_node *b, int len_b, int len_a);
 void	init_node_data(t_node *a, t_node *b);
 
-void	rr_looped();
-void	rrr_looped();
-void	finish_loop();
+//algo.c
+void	rr_looped(t_node **a, t_node **b, t_node *cheapest);
+void	rrr_looped(t_node **a, t_node **b, t_node *cheapest);
+void	finish_loop(t_node **stack, t_node *target, char name);
 void	move_the_damn_node(t_node **a, t_node **b);
 
+//main.c
 void	push_swap(t_node **a, t_node **b);
+void	sort_3(t_node **a);
 
-void	free_stack(t_node **node);
 
 #endif
