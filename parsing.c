@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 15:59:40 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/03/30 19:10:46 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:36:44 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,41 @@
 
 char **ft_split(char *str, char c)
 {
-	/*
-	needs two helpers include here
+	char	**arr;
+	int		i;
 	
-	*/
+	arr = malloc(sizeof(char *) * (wrd_count(str, c) + 1));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (*str)
+	{
+		if (*str != c)
+		{
+			arr[i] = get_word(str, c);
+			if (!arr[i])
+				return (NULL);
+			i++;
+			while (*str && *str != c)
+				str++;
+		}
+		else
+			str++;
+	}
+	arr[i] = NULL;
+	return (arr);
+}
+void	exit_msg(t_node **stack, char **flat)
+{
+	
 }
 
-t_node	*create_stack(char	**argv, int free_argv)
+void	free_flat(char **flat)
 {
-	//needs 7 helpers 
+	
+}
+
+t_node	*create_stack(char	**input)
+{
+	//needs 7 helpers include in stack_init_utils.
 }

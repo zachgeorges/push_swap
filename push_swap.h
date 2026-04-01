@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 15:59:34 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/03/30 19:10:55 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:36:46 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_node
 }				t_node;
 //parsing.c
 char	**ft_split(char *str, char c);
-t_node	*create_stack(char	**argv, int free_argv);
+t_node	*create_stack(char	**argv);
 
 //stack_utils.c
 int		stack_len(t_node *stack);

@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:19:06 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/03/30 19:10:53 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:36:41 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,39 @@ void	push_swap(t_node **a, t_node **b)
 	//else, rra repeatedly
 }
 
+void	cases(t_node **a, t_node **b)
+{
+	if (stack_len(*a) == 2)
+		sa(a);
+	else if (stack_len(*a) == 3)
+		sort_3(a);
+	else
+		push_swap(a, b);
+	free_stack(a);
+	free_stack(b);
+}
+
 int	main(int ac,char **av)
 {
-	//If ac == 1 or ac == 2 and av[1] empty
-	//	return (no output)
-	//If ac == 2
-	//	res = ft_split(av[1])
-	//	create_stack(res)
-	//	free_av = 1
+	t_node	*a;
+	t_node	*b;
+	char	**flat;
+	
+	if (ac < 2)
+		return (0);
+	flat = flatten_input(av);
+	if (!flat || !flat[0])
+	{
+		free(flat);
+		return (0);
+	}
+	a = create_stack(flat);
+	b = NULL;
+	if (is_sorted(a))
+	{
+		free_stack(&a);
+		return (0);
+	}
+	cases(&a, &b);
+	return (0);
 }
