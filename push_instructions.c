@@ -9,14 +9,13 @@
 /*   Updated: 2026/04/01 18:36:45 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 #include "push_swap.h"
 
 void	pa(t_node **a, t_node **b)
 {
 	t_node	*tmp;
-	if (!b)
+
+	if (!*b)
 		return ;
 	tmp = *b;
 	*b = (*b)->next;
@@ -25,14 +24,15 @@ void	pa(t_node **a, t_node **b)
 	tmp->next = *a;
 	if (*a)
 		(*a)->prev = tmp;
-		*a = tmp;
+	*a = tmp;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_node **a, t_node **b)
+void	pb(t_node **b, t_node **a)
 {
 	t_node	*tmp;
-	if (!a)
+
+	if (!*a)
 		return ;
 	tmp = *a;
 	*a = (*a)->next;
@@ -41,9 +41,6 @@ void	pb(t_node **a, t_node **b)
 	tmp->next = *b;
 	if (*b)
 		(*b)->prev = tmp;
-		*b = tmp;
+	*b = tmp;
 	write(1, "pb\n", 3);
 }
-
-
-

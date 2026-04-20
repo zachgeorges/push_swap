@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:17:51 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/04/01 18:36:51 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:17:51 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	stack_len(t_node *stack)
 {
 	int	len;
-	
+
 	len = 0;
 	while (stack)
 	{
@@ -28,7 +28,7 @@ int	stack_len(t_node *stack)
 int	is_sorted(t_node *stack)
 {
 	if (!stack)
-		return (1); //why return 1 on empty stack
+		return (1);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
@@ -40,7 +40,7 @@ int	is_sorted(t_node *stack)
 
 t_node	*get_smallest(t_node *stack)
 {
-	t_node *min;
+	t_node	*min;
 
 	min = stack;
 	while (stack)
@@ -55,7 +55,7 @@ t_node	*get_smallest(t_node *stack)
 void	free_stack(t_node **stack)
 {
 	t_node	*tmp;
-	
+
 	while (*stack)
 	{
 		tmp = (*stack)->next;

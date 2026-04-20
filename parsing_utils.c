@@ -6,7 +6,7 @@
 /*   By: zgeorges <zgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 18:32:26 by zgeorges          #+#    #+#             */
-/*   Updated: 2026/04/01 18:36:43 by zgeorges         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:32:26 by zgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	wrd_count(char *str, char c)
 {
 	int	count;
 	int	flag;
-	
+
 	count = 0;
 	flag = 0;
 	while (*str)
@@ -36,9 +36,9 @@ int	wrd_count(char *str, char c)
 char	*get_word(char *str, char c)
 {
 	char	*word;
-	int	len;
-	int	i;
-	
+	int		len;
+	int		i;
+
 	len = 0;
 	while (str[len] && str[len] != c)
 		len++;
@@ -51,6 +51,6 @@ char	*get_word(char *str, char c)
 		word[i] = str[i];
 		i++;
 	}
-	word[i]= '\0';
+	word[i] = '\0';
 	return (word);
 }

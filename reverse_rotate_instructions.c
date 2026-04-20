@@ -12,46 +12,37 @@
 
 #include "push_swap.h"
 
-void	rra(t_node **a)
+void	rev_rotate_stack(t_node **s)
 {
-	t_node	*head;
 	t_node	*tail;
-	
-	if (!*a || !(*a)->next)
+
+	if (!*s || !(*s)->next)
 		return ;
-	tail = *a;
+	tail = *s;
 	while (tail->next)
 		tail = tail->next;
 	tail->prev->next = NULL;
-	tail->next = *a;
+	tail->next = *s;
 	tail->prev = NULL;
-	(*a)->prev = tail;
-	*a = tail;
+	(*s)->prev = tail;
+	*s = tail;
+}
+
+void	rra(t_node **a)
+{
+	rev_rotate_stack(a);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_node **b)
 {
-	t_node	*head;
-	t_node	*tail;
-	
-	if (!*b || !(*b)->next)
-		return ;
-	tail = *b;
-	while (tail->next)
-		tail = tail->next;
-	tail->prev->next = NULL;
-	tail->next = *b;
-	tail->prev = NULL;
-	(*b)->prev = tail;
-	*b = tail;
+	rev_rotate_stack(b);
 	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_node **a, t_node **b)
 {
-	rra(a);
-	rrb(b);
+	rev_rotate_stack(a);
+	rev_rotate_stack(b);
 	write(1, "rrr\n", 4);
 }
-

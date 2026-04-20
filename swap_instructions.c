@@ -12,30 +12,32 @@
 
 #include "push_swap.h"
 
+void	swap_values(t_node **s)
+{
+	int	tmp;
+
+	if (!*s || !(*s)->next)
+		return ;
+	tmp = (*s)->value;
+	(*s)->value = (*s)->next->value;
+	(*s)->next->value = tmp;
+}
+
 void	sa(t_node **a)
 {
-	int	tmp;
-	if (!*a || !(*a)->next)
-		return;
-	tmp = (*a)->value;
-	(*a)->value = (*a)->next->value;
-	(*a)->next->value = tmp;
+	swap_values(a);
 	write(1, "sa\n", 3);
 }
+
 void	sb(t_node **b)
 {
-	int	tmp;
-	if (!*b || !(*b)->next)
-		return;
-	tmp = (*b)->value;
-	(*b)->value = (*b)->next->value;
-	(*b)->next->value = tmp;
+	swap_values(b);
 	write(1, "sb\n", 3);
 }
 
 void	ss(t_node **a, t_node **b)
 {
-	sa(a);
-	sb(b);
+	swap_values(a);
+	swap_values(b);
 	write(1, "ss\n", 3);
 }
