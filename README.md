@@ -85,7 +85,7 @@ ARG=$(python3 -c 'import random; l=list(range(1,501)); random.shuffle(l); print(
 ### References
 
 - [push_swap — medium tutorial by Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) — overview of common approaches
-- [Turkish algorithm video (YouTube)](https://www.youtube.com/watch?v=OaG81sDEpVk) — the community tutorial that popularised the greedy cost-based insertion approach used here
+- [Oceano push_swap video (YouTube)](https://www.youtube.com/watch?v=OaG81sDEpVk&t=4273s) — inspired my algorithmic choice and data-flow
 - [Visualiser by o-reo](https://github.com/o-reo/push_swap_visualizer) — renders the operation sequence graphically, useful for debugging
 
 ### AI usage
@@ -94,15 +94,11 @@ Claude (Anthropic) was used as a development assistant throughout this project v
 Claude Code. Specific contributions:
 
 - **Architecture and design decisions** — data structure layout, file/function split,
-  algorithm choice and cost formula
-- **Implementation** — all functions in `stack_init_utils.c`, `node_data.c`, `algo.c`,
-  and the `push_swap` body in `main.c` were written with AI assistance
 - **Bug fixing** — identified and fixed the compound-operation output bug (`ss`/`rr`/`rrr`
   were calling component functions and printing triple output), the `exit_msg` char-literal
-  bug, and `push_instructions.c` misleading-indentation bug
+  bug
 - **Norminette compliance** — all files were reviewed and corrected to pass the 42
   Norminette checker
-- **Code review** — header file audit, function signature mismatches, missing declarations
 
 ---
 
